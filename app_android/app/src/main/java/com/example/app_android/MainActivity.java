@@ -5,20 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String BROCKER_URL = "tcp://broker.hivemq.com:1883";//"tcp://mqtt-dashboard.com:8884"
-    private static final String CLIENT_ID = "adrr114unif";
+    private static final String CLIENT_ID = "et1141aaaaa";
     private MqttHandler mqttHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mqttHandler = new MqttHandler();
         mqttHandler.connect(BROCKER_URL,CLIENT_ID);
-
     }
 
     @Override
@@ -36,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"Subscribe to topic "+topic,Toast.LENGTH_SHORT).show();
         mqttHandler.subscribe(topic);
     }
-    public void switch_light(View v) {
-        publishMessage("light","red");
+    public void switch_light_on(View v) {
+        publishMessage("light","ON");
+    }
+    public void switch_light_off(View v) {
+        publishMessage("light","OFF");
     }
 }
