@@ -24,4 +24,9 @@
         android:onClick="switch_light_off"
         android:text="Light OFF" />
 
+    <TextView
+        android:id="@+id/TXT_topic_listener"
+        android:layout_width="265dp"
+        android:layout_height="47dp"></TextView>
+
 </FrameLayout>
